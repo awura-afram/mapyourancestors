@@ -1,0 +1,64 @@
+<?php 
+require 'connect.php';
+
+      if(isset($_POST['login'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+      
+
+      $sql ="SELECT `email`, `password` FROM `person` WHERE `email`='$email' AND `password`='$password'";
+      $result = $conn->query($sql);
+      
+      //check if record exist
+      if($result->num_rows>0){
+        header("location:landing.php");
+      }
+
+    }
+                
+?>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0594667512.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="register.css">
+
+  </head>
+
+  <body>
+    <div class="card col-4 " id="login-card">
+      <small style = "color:red"><?=$error ?></small><br>
+      <small style = "color:red"><?=$match ?></small><br>
+      <div class="card-body">
+        <form class="row g-9" method= 'POST' action= "./login.php">
+        <h1>LOG IN</h1>
+      <div class="col-lg-7">
+        <form action="forms/login.php" method="post" role="form" class="php-email-form">
+        <div class="row">
+        <div class="form-group mt-3">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+        </div>
+          <div class="form-group mt-3">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+          </div>
+        <div class="col-md-6 form-group mt-3 mt-md-6 text-center"><input type="submit" name="login" class="btn btn-warning" value="Login"></div> 
+      </form> 
+    </div> 
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+   </body>
+</html>
+
