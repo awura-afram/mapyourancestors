@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `MapYourAncestors`
 --
-
+CREATE DATABASE MapYourAncestors;
 USE MapYourAncestors;
 
 -- --------------------------------------------------------
