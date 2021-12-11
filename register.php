@@ -61,8 +61,6 @@ if (isset($_POST['create'])) {
 
 <body>
     <div class="card col-4 " id="login-card">
-        <small style="color:red"><?= $error ?></small><br>
-        <small style="color:red"><?= $match ?></small><br>
         <div class="card-body">
             <form class="row g-9" method='POST' action="./register.php">
                 <h1>SIGN UP</h1>
